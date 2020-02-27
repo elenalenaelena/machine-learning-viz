@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ml-app": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ml-app"
+    }
+  },
+  "defaultProject": "ml-app",
+  "cli": {
+    "analytics": "6fa1e546-a1ad-4ffd-a360-a68dc512eafe"
+  }
 }
