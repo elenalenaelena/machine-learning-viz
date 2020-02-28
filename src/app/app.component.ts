@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
     this.train();
   }
 
-
   async train(): Promise<any> {
   
     // Define a model for linear regression.
@@ -25,7 +24,6 @@ export class AppComponent implements OnInit {
 
     // Prepare the model for training: Specify the loss and the optimizer.
     this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
-
 
     // Training data, completely random stuff
     const xs = tf.tensor1d([3.2, 4.4, 5.5]);
