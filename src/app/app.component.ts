@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataModel } from 'src/app/data/data.model';
+import { ZooModel } from 'src/app/data/zoo.model';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,9 @@ import { DataModel } from 'src/app/data/data.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data: Observable<DataModel>;
+  data: Observable<ZooModel>;
 
   constructor(private http: HttpClient) {
-    this.data = this.http.get<DataModel>('./assets/data.json');
+    this.data = this.http.get<ZooModel>('./assets/animals.json');
   }
 }

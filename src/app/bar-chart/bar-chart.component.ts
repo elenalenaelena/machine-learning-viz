@@ -6,7 +6,7 @@ import { DataModel } from 'src/app/data/data.model';
   selector: 'app-bar-chart',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  styleUrls: ['./bar-chart.component.css']
 })
 export class BarChartComponent implements OnChanges {
   @ViewChild('chart')
@@ -25,8 +25,9 @@ export class BarChartComponent implements OnChanges {
     this.createChart();
   }
 
-  onResize() {
+  onResize(event) {
     this.createChart();
+    console.log('resizing');
   }
 
   private createChart(): void {
@@ -41,7 +42,7 @@ export class BarChartComponent implements OnChanges {
 
     const contentWidth = element.offsetWidth - this.margin.left - this.margin.right;
     const contentHeight = element.offsetHeight - this.margin.top - this.margin.bottom;
-
+ 
     const x = d3
       .scaleBand()
       .rangeRound([0, contentWidth])
@@ -53,6 +54,10 @@ export class BarChartComponent implements OnChanges {
       .rangeRound([contentHeight, 0])
       .domain([0, d3.max(data, d => d.frequency)]);
 
+    let myColor = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.frequency)])
+      .range(["white", "blue"])
+   
     const g = svg.append('g')
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 
@@ -78,6 +83,16 @@ export class BarChartComponent implements OnChanges {
         .attr('x', d => x(d.letter))
         .attr('y', d => y(d.frequency))
         .attr('width', x.bandwidth())
-        .attr('height', d => contentHeight - y(d.frequency));
+        .attr('height', d => contentHeight - y(d.frequency))
+        .attr("fill", function(d){return myColor(d.frequency) })
+        .on("mouseover", function() {
+          d3.select(this)
+              .attr("fill", "red");
+        })
+        .on("mouseout", function(d) {
+            d3.select(this).attr("fill", function() {
+                return "" + myColor(d.frequency) + "";
+            });
+        });
   }
 }
