@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, OnChanges, ViewChild, ViewEncapsulation, HostListener} from '@angular/core';
 import * as d3 from 'd3';
 import * as tf from '@tensorflow/tfjs';
-import { ZooModel } from 'src/app/data/zoo.model';
+import { ZooModel } from 'src/app/shared/models/zoo.model';
 
 @Component({
   selector: 'app-pointlist',
