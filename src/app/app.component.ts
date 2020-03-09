@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ZooModel } from 'src/app/data/zoo.model';
+import { EventModel } from 'src/app/shared/models/event.model';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,9 @@ import { ZooModel } from 'src/app/data/zoo.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data: Observable<ZooModel>;
+  data: Observable<EventModel>;
 
   constructor(private http: HttpClient) {
-    this.data = this.http.get<ZooModel>('./assets/animals.json');
+    this.data = this.http.get<EventModel>('src/app/shared/data/events.json');
   }
 }

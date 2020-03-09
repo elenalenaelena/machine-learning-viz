@@ -7,7 +7,7 @@ TensorFlow says {{ prediction }}
 <input type="number" (change)="predict($event.target.value)">
 
 <ul>
-    <li *ngFor="let animal of data">
-      {{ animal.animal_name }}
+    <li *ngFor="let item of data">
+      {{ item.id }}
     </li>
 </ul>
