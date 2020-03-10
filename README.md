@@ -22,8 +22,8 @@ This repository is influenced mainly by the following sources:
 - [fastai](https://github.com/fastai/fastai), deep learning framework for training models
 
 ## Inspiration
-- Combining Research, Data Viz, ML, AI and Art: [Fernanda Viégas](http://www.fernandaviegas.com/)
-- Overview of Data Viz functions and charts: [The Data Vizualization Catalogue](https://datavizcatalogue.com/)
-- ML Viz: [Embedding Projector](https://projector.tensorflow.org/), Google AI team's interactive visualization of ML algorithms 
-- Computational Architecture and Design: [Plethora Project](https://www.plethora-project.com/)
+- [Fernanda Viégas](http://www.fernandaviegas.com/), combining Research, Data Viz, ML, AI and Art
+- [The Data Vizualization Catalogue](https://datavizcatalogue.com/), overview of Data Viz functions and charts
+- [Embedding Projector](https://projector.tensorflow.org/), Google AI team's interactive visualization of ML algorithms 
+- [Plethora Project](https://www.plethora-project.com/), open-source design studio for computational architecture and design 
 
