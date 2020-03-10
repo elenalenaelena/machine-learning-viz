@@ -18,7 +18,7 @@ This repository is influenced mainly by the following sources:
 ## github
 - [Zalando Research FlairNLP](https://github.com/flairNLP/flair), multilingual, pretrained models
 - [standfordnlp](https://github.com/stanfordnlp/stanfordnlp), multilingual, pretrained models 
-- [Google BERT](https://github.com/google-research/bert), language-independent, pretrainded models
+- [Google BERT](https://github.com/google-research/bert), language-independent, pretrained models
 - [fastai](https://github.com/fastai/fastai), deep learning framework for training models
 
 ## Inspiration
