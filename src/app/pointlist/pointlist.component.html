@@ -1,13 +1,13 @@
 <p>pointlist works!</p>
 
-<div #pointlist id="pointlist" (window:resize)="onResize($event)"></div>
+<!--<div #pointlist id="pointlist" (window:resize)="onResize($event)"></div>-->
 
-TensorFlow says {{ prediction }}
+<!--TensorFlow says {{ prediction }}
 
-<input type="number" (change)="predict($event.target.value)">
+<input type="number" (change)="predict($event.target.value)">-->
 
 <ul>
     <li *ngFor="let item of data">
-      {{ item.id }}
+      {{ item.id }}, {{ item.language }}
     </li>
 </ul>

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnChanges, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
 import * as d3 from 'd3';
-import { EventModel } from 'src/app/shared/models/event.model';
+import { EventModel } from 'src/app/models/event.model';
 
 @Component({
   selector: 'app-bar-chart',
@@ -21,13 +21,11 @@ export class BarChartComponent implements OnChanges {
 
   ngOnChanges(): void {
     if (!this.data) { return; }
-
     this.createChart();
   }
 
   onResize(event) {
     this.createChart();
-    console.log('resizing');
   }
 
   private createChart(): void {
@@ -44,22 +42,21 @@ export class BarChartComponent implements OnChanges {
 
     const dataset = this.data;
   
-    var nest = d3.nest()
+    let nest = d3.nest()
       .key(function(d) { return d.language;  })
+      .sortKeys(d3.ascending)
       .rollup(function(v) { return v.length; })
       .entries(dataset)
 
     console.log(JSON.stringify(nest));
  
-    /*const xScale = d3
-      .scaleLinear()
-      .rangeRound([0, contentWidth])
-      .domain(dataset.map(d => d.language));
+    const xScale = d3
+      .scaleOrdinal()
+      .domain(nest.map(function(d) { return d.key; }));
 
     const yScale = d3       
       .scaleLinear()
-      .rangeRound([0, contentWidth])
-      .domain(dataset.map(d => d.language));
+      .domain([0, nest.map(function(d) { return d.length; })]);
    
     const g = svg.append('g')
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
@@ -67,17 +64,22 @@ export class BarChartComponent implements OnChanges {
     g.append('g')
       .attr('class', 'axis axis--x')
       .attr('transform', 'translate(0,' + contentHeight + ')')
-      .call(d3.axisBottom(xScale));
+      .call(d3.axisBottom(xScale))
+      .append('text')
+        .attr('x', 6)
+        .attr('dx', '0.71em')
+        .attr('text-anchor', 'end')
+        .text('language');
 
     g.append('g')
       .attr('class', 'axis axis--y')
-      .call(d3.axisLeft(yScale).ticks(10, '%'))
+      .call(d3.axisLeft(yScale).ticks(10))
       .append('text')
         .attr('transform', 'rotate(-90)')
         .attr('y', 6)
         .attr('dy', '0.71em')
         .attr('text-anchor', 'end')
-        .text('Frequency');
+        .text('No. of Events');
 
     g.selectAll('.bar')
       .data(nest)
@@ -85,15 +87,9 @@ export class BarChartComponent implements OnChanges {
         .attr('class', 'bar')
         .attr('x', d => xScale(nest.language))
         .attr('y', d => yScale(nest.language.count))
-        .attr('width', xScale.bandwidth())
-        .attr('height', d => contentHeight - y(d.frequency))
-        .attr("fill", "blue")
-        .on("mouseover", function() {
-          d3.select(this)
-              .attr("fill", "red");
-        })
-        .on("mouseout", function(d) {
-            d3.select(this).attr("fill", "blue");
-        });*/
+        .attr('width', contentWidth)
+        .attr('height', d => contentHeight - yScale(nest.language))
+        .style('fill', "blue");
+   
   }
 }

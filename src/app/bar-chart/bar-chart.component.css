@@ -1,17 +1,13 @@
-  
-#chart {
-    height: inherit;
-    width: inherit;
+
+[_nghost-kwy-c12] {
+    background-color: aquamarine;
 }
 
-/*.bar {
+.bar {
    fill: steelblue;
 }
         
 .bar:hover {
     fill: brown;
-}*/
-        
-.axis--x path {
-    display: none;
 }
+  

@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.w50, .w50-responsive {
+  width: 50%;
+}
+
+/*** MOBILE DEVICES ***/
+@media only screen and (max-width: 1200px) {
+
+  .w50-responsive {
+    width: 90%;
+  }
+
+}

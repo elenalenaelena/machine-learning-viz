@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, OnChanges, ViewChild, ViewEncapsulation, HostListener} from '@angular/core';
 import * as d3 from 'd3';
 import * as tf from '@tensorflow/tfjs';
-import { ZooModel } from 'src/app/shared/models/zoo.model';
+import { EventModel } from 'src/app/models/event.model';
 
 @Component({
   selector: 'app-pointlist',
@@ -17,7 +17,7 @@ export class PointlistComponent implements OnInit, OnChanges {
   private listContainer: ElementRef;
 
   @Input()
-  data: ZooModel[];
+  data: EventModel[];
   margin = {top: 20, right: 20, bottom: 30, left: 40};
   
   constructor() { }
@@ -55,7 +55,7 @@ export class PointlistComponent implements OnInit, OnChanges {
       .scaleBand()
       .rangeRound([0, contentWidth])
       .padding(0.1)
-      .domain(data.map(d => d.class_type));
+      .domain(data.map(d => d.id));
 
     const y = d3
       .scaleLinear()
