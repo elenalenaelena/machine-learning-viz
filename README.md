@@ -14,6 +14,7 @@ This repository is influenced mainly by the following sources:
 - [Introduction to Flair for NLP](https://www.analyticsvidhya.com/blog/2019/02/flair-nlp-library-python/), blogpost on FlairNLP Framework by Sharoon Saxena 
 - [Visualization for Machine Learning (Google Brain)](https://www.youtube.com/watch?v=ulLx2iPTIcs), Video on ML Viz by Google
 - [How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/), Article on t-SNE by Google Researchers
+- [How to deploy an Angular App](https://medium.com/coinmonks/how-to-deploy-an-angular-app-8db1af39f8c1), blogpost on deplying Angular app via gh-pages by Yann Mulonda
 
 ## github
 - [Zalando Research FlairNLP](https://github.com/flairNLP/flair), multilingual, pretrained models
