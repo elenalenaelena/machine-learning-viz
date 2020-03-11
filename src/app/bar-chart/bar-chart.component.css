@@ -1,13 +1,4 @@
 
-[_nghost-kwy-c12] {
-    background-color: aquamarine;
+#chart {
+    height: 350px;
 }
-
-.bar {
-   fill: steelblue;
-}
-        
-.bar:hover {
-    fill: brown;
-}
-  

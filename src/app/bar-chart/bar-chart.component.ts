@@ -15,7 +15,7 @@ export class BarChartComponent implements OnChanges {
   @Input()
   data: EventModel[];
 
-  margin = {top: 20, right: 20, bottom: 30, left: 40};
+  margin = {top: 10, right: 10, bottom: 60, left: 60};
 
   constructor() { }
 
@@ -49,17 +49,19 @@ export class BarChartComponent implements OnChanges {
       .entries(dataset)
 
     console.log(JSON.stringify(nest));
+    console.log('contentHeigth: ' + contentHeight + ', contentWidth: ' + contentWidth)
  
     const xScale = d3
       .scaleBand()
-      .range([0, contentWidth], .1)
+      .range([0, contentWidth], .2)
+      .padding(.4)
       .domain(nest.map(function(d) { return d.key; }));
 
     const yScale = d3       
       .scaleLinear()
-      .range([0, contentHeight], .1)
-      .domain([0, nest.map(function(d) { return d.length; })]);
-   
+      .range([0, contentHeight])
+      .domain([2000,0]);
+      
     const g = svg.append('g')
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 
@@ -67,28 +69,37 @@ export class BarChartComponent implements OnChanges {
       .attr('class', 'axis axis--x')
       .attr('transform', 'translate(0,' + contentHeight + ')')
       .call(d3.axisBottom(xScale))
+      .append('text')   
+        .attr('text-anchor', 'middle')
+        .attr("transform", "translate("+ contentWidth/2 +", " + this.margin.bottom/2 + ")") 
+        .style('fill', "#3d3d3d")
+        .attr("font-size", "14pt")
+        .text('language');
 
     g.append('g')
       .attr('class', 'axis axis--y')
       .call(d3.axisLeft(yScale).ticks(10))
-      .append('text')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', 6)
-        .attr('dy', '0.71em')
-        .attr('text-anchor', 'end')
-        .style('fill', "3d3d3d")
-        .attr("font-size", "14px")
-        .text('events');
+      .append('text')        
+        .attr('text-anchor', 'middle')
+        .attr('transform', "translate(" + this.margin.left/2 + "," + contentHeight/2 +")rotate(-90)")
+        .style('fill', "#3d3d3d")
+        .attr("font-size", "14pt")
+        .text('no.of events');
 
     g.selectAll('.bar')
       .data(nest)
       .enter().append('rect')
-        .attr('class', 'bar')
-        .attr('x', d => xScale(nest.language))
-        .attr('y', d => yScale(nest.language.count))
-        .attr('width', "20px")
-        .attr('height', d => contentHeight - yScale(nest.language))
-        .style('fill', "blue");
-   
+        .attr('class', 'bar')   
+        .attr("x", function(d) { console.log(d.key); return xScale(d.key); }) 
+        .attr("y", function(d) { console.log(yScale(d.value)); return yScale(d.value); })
+        .attr("width", xScale.bandwidth())
+        .attr("height", function(d) { return contentHeight - yScale(d.value); })
+        .style('fill', '#0097a7' )
+        .on("mouseover", function() {
+          d3.select(this).style('fill', '#56c8d8' )
+        })
+        .on("mouseout", function() {
+            d3.select(this).style('fill', '#0097a7' )
+         });
   }
 }
