@@ -2,3 +2,11 @@
 #chart {
     height: 350px;
 }
+
+.axis path, .axis line {
+    stroke: #B8B8B8;
+}
+
+.axis text {
+    font-size: 12pt;
+}

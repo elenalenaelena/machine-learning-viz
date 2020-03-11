@@ -8,6 +8,7 @@ This repository is influenced mainly by the following sources:
 - Maaten, L.v.d. and Hinton, G. (2008). [Vizualizing Data using t-SNE](http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf), Journal of Machine Learning Research, Vol 9(Nov), pp. 2579—2605, http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
 
 ## Blogposts / Tutorials
+- [BERT for dummies](https://towardsdatascience.com/bert-for-dummies-step-by-step-tutorial-fb90890ffe03), tutorial on how to load the pre-trained BERT model in a PyTorch notebook and fine-tune it on your own dataset for solving a specific task by Michel Kana
 - [Creating a responsive graph with Angular and D3](https://medium.com/@jeanphilippelemieux/creating-a-responsive-graph-with-angular-and-d3-b45bb8065588), tutorial on d3 + Angular by Jean-Philippe Lemieux
 - [Tensorflow Quickstart](https://fireship.io/lessons/tensorflow-js-quick-start/), tutorial on Tensorflow on fireship.io
 - [Visualizing Algorithms](https://bost.ocks.org/mike/algorithms/), blogpost on viz adapting Mike Bostock's talk at Eyeo 2014
@@ -26,6 +27,7 @@ This repository is influenced mainly by the following sources:
 
 ## Inspiration
 - [Fernanda Viégas](http://www.fernandaviegas.com/), combining Research, Data Viz, ML, AI and Art
+- [D3.js Graph Gallery](https://www.d3-graph-gallery.com/index.html), overview and d3 example gallery
 - [The Data Vizualization Catalogue](https://datavizcatalogue.com/), overview of Data Viz functions and charts
 - [Embedding Projector](https://projector.tensorflow.org/), Google AI team's interactive visualization of ML algorithms 
 - [Plethora Project](https://www.plethora-project.com/), open-source design studio for computational architecture and design 
