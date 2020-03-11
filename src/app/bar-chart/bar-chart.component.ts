@@ -51,11 +51,13 @@ export class BarChartComponent implements OnChanges {
     console.log(JSON.stringify(nest));
  
     const xScale = d3
-      .scaleOrdinal()
+      .scaleBand()
+      .range([0, contentWidth], .1)
       .domain(nest.map(function(d) { return d.key; }));
 
     const yScale = d3       
       .scaleLinear()
+      .range([0, contentHeight], .1)
       .domain([0, nest.map(function(d) { return d.length; })]);
    
     const g = svg.append('g')
@@ -65,11 +67,6 @@ export class BarChartComponent implements OnChanges {
       .attr('class', 'axis axis--x')
       .attr('transform', 'translate(0,' + contentHeight + ')')
       .call(d3.axisBottom(xScale))
-      .append('text')
-        .attr('x', 6)
-        .attr('dx', '0.71em')
-        .attr('text-anchor', 'end')
-        .text('language');
 
     g.append('g')
       .attr('class', 'axis axis--y')
@@ -79,7 +76,9 @@ export class BarChartComponent implements OnChanges {
         .attr('y', 6)
         .attr('dy', '0.71em')
         .attr('text-anchor', 'end')
-        .text('No. of Events');
+        .style('fill', "3d3d3d")
+        .attr("font-size", "14px")
+        .text('events');
 
     g.selectAll('.bar')
       .data(nest)
@@ -87,7 +86,7 @@ export class BarChartComponent implements OnChanges {
         .attr('class', 'bar')
         .attr('x', d => xScale(nest.language))
         .attr('y', d => yScale(nest.language.count))
-        .attr('width', contentWidth)
+        .attr('width', "20px")
         .attr('height', d => contentHeight - yScale(nest.language))
         .style('fill', "blue");
    
