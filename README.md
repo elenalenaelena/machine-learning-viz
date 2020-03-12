@@ -11,6 +11,8 @@ This repository is influenced mainly by the following sources:
 - [BERT for dummies](https://towardsdatascience.com/bert-for-dummies-step-by-step-tutorial-fb90890ffe03), tutorial on how to load the pre-trained BERT model in a PyTorch notebook and fine-tune it on your own dataset for solving a specific task by Michel Kana
 - [Creating a responsive graph with Angular and D3](https://medium.com/@jeanphilippelemieux/creating-a-responsive-graph-with-angular-and-d3-b45bb8065588), tutorial on d3 + Angular by Jean-Philippe Lemieux
 - [Tensorflow Quickstart](https://fireship.io/lessons/tensorflow-js-quick-start/), tutorial on Tensorflow on fireship.io
+- [Predicting Movie Reviews with BERT on TF Hub.ipynb](https://colab.research.google.com/github/google-research/bert/blob/master/predicting_movie_reviews_with_bert_on_tf_hub.ipynb#scrollTo=MC_w8SRqN0fr), Jupyter Notebook on NLP classification task 
+- [Visualizing BERT embeddings with t-SNE](https://www.kaggle.com/mateiionita/visualizing-bert-embeddings-with-t-sne)
 - [Visualizing Algorithms](https://bost.ocks.org/mike/algorithms/), blogpost on viz adapting Mike Bostock's talk at Eyeo 2014
 - [The Illustrated BERT, ELMo, and co.](http://jalammar.github.io/illustrated-bert/), blogpost on Google BERT by Jay Alammar
 - [Multi-label Text Classification using BERT – The Mighty Transformer](https://medium.com/huggingface/multi-label-text-classification-using-bert-the-mighty-transformer-69714fa3fb3d), blogpost on Google BERT by Kaushal Trivedi
